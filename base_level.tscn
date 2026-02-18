@@ -37,8 +37,9 @@ environment = SubResource("Environment_5vx1e")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="RayPickerCamera" parent="." unique_id=225340589 instance=ExtResource("1_3o4py")]
+[node name="RayPickerCamera" parent="." unique_id=225340589 node_paths=PackedStringArray("grid_map") instance=ExtResource("1_3o4py")]
 transform = Transform3D(1, 0, 0, 0, 0.42261824, 0.9063078, 0, -0.9063078, 0.42261824, -1, 17, 10)
+grid_map = NodePath("../GridMap")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1451968340]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -110,7 +111,7 @@ transform = Transform3D(-0.01906546, 0, -0.99981827, 0, 1, 0, 0.99981827, 0, -0.
 progress = 10.0
 
 [node name="Enemy4" parent="Path3D" unique_id=1315046775 instance=ExtResource("2_5vx1e")]
-transform = Transform3D(-0.01613313, 0, -0.9998698, 0, 1, 0, 0.9998698, 0, -0.01613313, -11.003167, 0, 6.305476)
+transform = Transform3D(-0.016133126, 0, -0.99986964, 0, 1, 0, 0.99986964, 0, -0.016133126, -11.003167, 0, 6.305476)
 progress = 15.0
 
 [node name="Enemy5" parent="Path3D" unique_id=1797596170 instance=ExtResource("2_5vx1e")]

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dyw0jh56m2nx0"]
+
+[ext_resource type="Script" uid="uid://bju852m64o3tj" path="res://turret/turret.gd" id="1_vfthy"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pweg5"]
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vfthy"]
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.6
+
+[sub_resource type="BoxMesh" id="BoxMesh_pweg5"]
+size = Vector3(0.8, 0.4, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vfthy"]
+size = Vector3(0.4, 0.2, 0.4)
+
+[node name="Turret" type="Node3D" unique_id=932348272]
+script = ExtResource("1_vfthy")
+
+[node name="TurretBase" type="MeshInstance3D" parent="." unique_id=619527825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_pweg5")
+
+[node name="TurretTop" type="MeshInstance3D" parent="TurretBase" unique_id=418219860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("CylinderMesh_vfthy")
+
+[node name="Visor" type="MeshInstance3D" parent="TurretBase/TurretTop" unique_id=1570715941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6)
+mesh = SubResource("BoxMesh_pweg5")
+
+[node name="Barrel" type="MeshInstance3D" parent="TurretBase/TurretTop/Visor" unique_id=849768368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+mesh = SubResource("BoxMesh_vfthy")

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dwmlcnsjxijt6"]
+
+[ext_resource type="Script" uid="uid://ckt4qv16rssxd" path="res://difficulty_manager/difficulty_manager.gd" id="1_yfgee"]
+
+[sub_resource type="Curve" id="Curve_yfgee"]
+_limits = [0.25, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, -1.7500001, 0, 1, Vector2(1, 0.25), -1.7500001, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_botnv"]
+_limits = [10.0, 150.0, 0.0, 1.0]
+_data = [Vector2(0, 10), 0.0, 140.0, 0, 1, Vector2(1, 150), 140.0, 0.0, 1, 0]
+point_count = 2
+
+[node name="DifficultyManager" type="Node" unique_id=450444547]
+script = ExtResource("1_yfgee")
+spawn_time_curve = SubResource("Curve_yfgee")
+enemy_health_curve = SubResource("Curve_botnv")
+
+[node name="Timer" type="Timer" parent="." unique_id=2118516182]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

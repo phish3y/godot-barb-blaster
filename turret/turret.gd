@@ -5,6 +5,7 @@ class_name Turret
 @export var turret_range: float = 10.0
 
 @onready var barrel: MeshInstance3D = $TurretBase/TurretTop/Visor/Barrel
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var enemy: Enemy
 var enemy_path: Path3D
@@ -16,6 +17,7 @@ func _physics_process(delta: float) -> void:
 	
 func _on_timer_timeout() -> void:
 	if enemy:
+		animation_player.play("turret_fire")
 		var shot: Projectile = self.projectile.instantiate() as Projectile
 		add_child(shot)
 		shot.global_position = self.barrel.global_position

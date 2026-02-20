@@ -11,9 +11,6 @@ signal stop_spawning_enemies
 
 func _ready() -> void:
 	self.timer.start(game_length)
-	
-func _process(delta: float) -> void:
-	print(self.game_progress_ratio())
 
 func game_progress_ratio() -> float:
 	return 1.0 - self.timer.time_left / self.game_length
@@ -23,7 +20,6 @@ func get_spawn_time() -> float:
 
 func get_enemy_health() -> float:
 	return self.enemy_health_curve.sample(self.game_progress_ratio())
-
 
 func _on_timer_timeout() -> void:
 	self.stop_spawning_enemies.emit()

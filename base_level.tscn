@@ -85,7 +85,7 @@ path_interval = 0.5
 path_simplify_angle = 0.0
 path_rotation = 2
 path_rotation_accurate = false
-path_local = false
+path_local = true
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
@@ -99,7 +99,7 @@ path_interval = 0.5
 path_simplify_angle = 0.0
 path_rotation = 2
 path_rotation_accurate = false
-path_local = false
+path_local = true
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
@@ -113,7 +113,7 @@ path_interval = 0.5
 path_simplify_angle = 0.0
 path_rotation = 2
 path_rotation_accurate = false
-path_local = false
+path_local = true
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
@@ -124,6 +124,7 @@ autostart = true
 
 [node name="Base" parent="." unique_id=2062093338 instance=ExtResource("3_eesb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -6)
+max_health = 50
 
 [node name="TurretManager" type="Node3D" parent="." unique_id=1631928890 node_paths=PackedStringArray("enemy_path")]
 script = ExtResource("5_ftfrf")
@@ -152,4 +153,7 @@ label_settings = SubResource("LabelSettings_2elnx")
 [node name="DifficultyManager" parent="." unique_id=450444547 instance=ExtResource("9_xjg0i")]
 enemy_health_curve = SubResource("Curve_xjg0i")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1555383787]
+
 [connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="_on_timer_timeout"]
+[connection signal="stop_spawning_enemies" from="DifficultyManager" to="EnemyPath" method="_on_difficulty_manager_stop_spawning_enemies"]
